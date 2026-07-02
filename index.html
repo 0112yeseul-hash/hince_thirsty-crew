@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THIRSTY CREW — 오아시스를 찾는 사람들 | hince 누 글로우 화이트쿠션</title>
+<meta name="description" content="마르지 않는 오아시스를 찾아 떠나는 THIRSTY CREW 모집.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   ✏️ 문안 수정 구역 — 여기서부터 "문안 수정 구역 끝"까지만 고치세요
+   ─────────────────────────────────────────────────────────────
+   규칙 3가지만 기억하면 됩니다.
+   1) 따옴표 " " 안의 글자만 수정하세요. 따옴표·쉼표·괄호는 지우면 안 돼요.
+   2) 여러 줄 제목은 [ "첫 줄", "둘째 줄" ] 처럼 줄마다 따옴표로 나뉩니다.
+      줄을 늘리거나 줄이려면 "문장", 을 통째로 추가/삭제하면 됩니다.
+   3) *별표로 감싼 부분*은 화면에서 강조(밑줄/포인트 컬러)로 표시됩니다.
+   ═══════════════════════════════════════════════════════════════ */
+const COPY = {
+
+  /* ── 기본 ── */
+  로고: "hince",
+  게이지라벨: "수분 잔량",
+
+  /* ── LOG 01 · 첫 화면 (사막) ── */
+  로그01: {
+    라벨: "LOG 01 · 탐사 시작 — 어느 마른 오후",
+    제목: [
+      "글로우 쿠션의 편견을 깨는,",
+      "#차세대글로우",
+      "제일 먼저 경험해 보세요."
+    ],
+    본문: "에어컨 바람, 긴 화면 응시, 오후 3시의 건조함. 우리는 모두 각자의 사막을 걷는 중입니다. 어딘가에 마르지 않는 오아시스가 있다는 소문을 따라서.",
+    좌표: [
+      ["DEHYDRATION ALERT", "LV.04"],
+      ["DISTANCE TO OASIS", "UNKNOWN"],
+      ["CREW STATUS", "모집 중"]
+    ],
+    스크롤안내: "아래로 — 오아시스의 흔적 발견"
+  },
+
+  /* ── LOG 02 · 꾹 눌러 수분 채우기 ── */
+  로그02: {
+    라벨: "LOG 02 · 첫 번째 참여 — 마르지 않는 히알먹 피부를 완성하세요.",
+    제목: [
+      "메마른 이 페이지에",
+      "수분을 채워야 길이 열립니다."
+    ],
+    본문: "아래 우물을 길게 누르고 계세요. 손을 떼면 다시 마릅니다.",
+    우물안내: "PRESS & HOLD",
+    힌트: "HOLD TO HYDRATE",
+    완료힌트: "OASIS FOUND — 오아시스가 열렸습니다"
+  },
+
+  /* ── LOG 03 · 오아시스 발견 (제품 소개) ── */
+  로그03: {
+    라벨: "LOG 03 · 발견 — 신기루가 아니었다!",
+    제목: [
+      "마르지 않는,",
+      "피부 위 *오아시스.*"
+    ],
+    본문: "사막 한가운데서 찾은 건 신기루가 아니라 진짜 오아시스였습니다. hince의 새로운 오아시스를 발견했습니다. 이제, 먼저 마셔볼 사람들을 찾습니다.",
+    스펙: [
+      ["EXPEDITION", "hince 누 글로우 화이트 쿠션 사전 체험 "],
+      ["RECRUIT", "THIRSTY CREW 체험단 (트위터 한정)"],
+      ["MISSION", "오아시스를 가장 먼저 경험하고 탐사 기록(리뷰)을 남기는 것"],
+      ["REWARD", "신제품+탐사 키트 증정"]
+    ]
+  },
+
+  /* ── LOG 04 · 갈증 문답 (질문·보기·결과 타입) ── */
+  로그04: {
+    라벨: "LOG 04 · 갈증 문답 — 당신은 얼마나 목마른가요",
+    질문들: [
+      {
+        질문: ["오후 3시, 거울 속 당신의 피부.", "사막으로 치면 어떤 모습인가요?"],
+        보기: [
+          "아직은 촉촉한 모래언덕 — 그럭저럭 버티는 중",
+          "쩍쩍 갈라진 소금사막 — 파운데이션이 백사장처럼 뜬다",
+          "모래폭풍 한복판 — 번들거림과 당김이 동시에 온다"
+        ]
+      },
+      {
+        질문: ["사막에서 오아시스를 발견했습니다.", "가장 먼저 하고 싶은 일은?"],
+        보기: [
+          "일단 조용히 한 모금 — 신중하게 확인부터",
+          "머리부터 풍덩 — 온몸으로 느껴야 직성이 풀림",
+          "친구들 전원 소집 — 좋은 건 같이 마셔야지 (트위터에 좌표 공유)"
+        ]
+      },
+      {
+        질문: ["당신이 오아시스에게 바라는", "단 하나의 조건은?"],
+        보기: [
+          "은은하게 오래가는 글로우 — 저녁까지 마르지 않기",
+          "바른 순간의 히알먹 광채 — 첫 모금의 수분광",
+          "가볍고 얇은 수막 — 물을 발랐는데 커버가 되는 기적"
+        ]
+      }
+    ],
+    결과태그: "THIRST TYPE ANALYZED",
+    /* 보기에서 A를 많이 고르면 타입1, B는 타입2, C는 타입3이 나옵니다 */
+    타입들: [
+      { 이름: "세심하고 고요한 워커", 설명: "서두르지 않지만 확실한 것을 원하는 타입. 은은하게, 그러나 하루 종일 마르지 않는 글로우가 당신의 오아시스입니다." },
+      { 이름: "한낮의 선인장", 설명: "극한의 갈증을 버텨온 타입. 바르는 순간 차오르는 히알먹피부, 그 첫 모금의 청량함이 누구보다 절실합니다." },
+      { 이름: "신기루 추적자", 설명: "좋은 것을 발견하면 크루 전원을 소집하는 타입. 가볍고 얇은 커버 — 이 오아시스의 좌표, 퍼뜨릴 준비 되셨죠?" }
+    ],
+    지수문구: "갈증 지수 {지수} / 100 — 크루 합류 자격 충분"
+  },
+
+  /* ── LOG 05 · 신청 폼 ── */
+  로그05: {
+    라벨: "LOG 05 · 최종 관문 — THIRSTY CREW 합류",
+    제목: [
+      "탐사대원증을 발급받고,",
+      "트위터에 남기면 신청 완료."
+    ],
+    폼: {
+      코드네임: "CODENAME · 카드에 새길 이름 (선택)",
+      코드네임예시: "예: 사막여우, 미아, DUNE…",
+      본명: "본명 (배송·당첨 안내용)",
+      본명예시: "홍길동",
+      트위터: "X(TWITTER) 계정",
+      트위터예시: "@thirsty_me",
+      연락처: "연락처",
+      연락처예시: "010-0000-0000",
+      주소: "주소 (제품 배송지)",
+      주소예시: "도로명 주소 + 상세 주소"
+    },
+    동의제목: "개인정보 수집·이용에 동의합니다 (필수)",
+    동의상세: "수집 항목: 이름, X(트위터) 계정, 연락처, 주소 · 수집 목적: 체험단 선정 및 제품 배송 · 보유 기간: 체험단 운영 종료 후 즉시 파기 · 동의를 거부할 수 있으나, 거부 시 체험단 신청이 제한됩니다.",
+    발급버튼: "탐사대원증 발급하기",
+    안내문: "발급된 카드를 트윗(공유)하는 순간 체험단 신청이 완료됩니다. 당첨자는 개별 연락으로 안내해 드립니다.",
+    카드고정: {
+      상단좌: "THIRSTY CREW — MEMBER CARD",
+      미션: "마르지 않는 오아시스 선발 탐사",
+      목적지: "누 글로우 화이트 쿠션"
+    },
+    트윗버튼: "트윗하고 신청 완료",
+    복사버튼: "문구 복사",
+    복사완료: "COPIED — 트윗에 붙여넣으세요"
+  },
+
+  /* ── 트윗 문구 ({크루번호} {지수} {타입}은 자동으로 바뀝니다) ── */
+  트윗문구: [
+    "🏜️ 사막을 건너 오아시스를 찾았습니다.",
+    "THIRSTY CREW {크루번호} — 갈증 지수 {지수}/100 ({타입})",
+    "마르지 않는 피부 위 오아시스,선발 탐사에 지원합니다.",
+    " @hince_official #힌스 #누글로우화이트쿠션 #THIRSTYCREW #마르지않는오아시스"
+  ],
+
+  /* ── 하단 ── */
+  푸터로고: "HINCE — NU GLOW WHITE CUSHION",
+  푸터해시태그: "#힌스 #누글로우화이트쿠션 #THIRSTYCREW #마르지않는오아시스",
+
+  /* ═══════════════════════════════════════════════════
+     🔗 구글 시트 연결 주소
+     설정 가이드대로 Apps Script를 배포한 뒤,
+     받은 웹 앱 URL을 아래 따옴표 안에 붙여넣으세요.
+     예: "https://script.google.com/macros/s/XXXX/exec"
+     ═══════════════════════════════════════════════════ */
+  구글시트URL: "https://script.google.com/macros/s/AKfycbyjtzyfGlvKnuLmdRteAV0fzqtZm-jITVoYHye1pa4JWxRWNvJjJGj8lqWG8nKCCoU/exec"
+
+};
+/* ═══════════════ ✏️ 문안 수정 구역 끝 ═══════════════ */
+</script>
+
+<style>
+:root{
+  --ink:#141412;
+  --bone:#EFEEEA;
+  --sand:#9E9C95;
+  --line:rgba(20,20,18,.16);
+  --oasis:#B9BDB4;
+  --oasis-deep:#8f8d86;
+  --glow:#f4f3ef;
+  --serif:'Noto Serif KR', serif;
+  --sans:'Pretendard Variable', Pretendard, sans-serif;
+  --mono:'IBM Plex Mono', monospace;
+}
+body.hydrated{
+  --oasis:#4FA79D;
+  --oasis-deep:#2E7C73;
+  --glow:#E3F3F0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--bone);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  transition:background 1.6s ease;
+}
+body.hydrated{background:linear-gradient(180deg,var(--bone) 0%, #EAF1EF 60%, var(--bone) 100%)}
+
+.grain{position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  transition:opacity 2s ease}
+body.hydrated .grain{opacity:.18}
+
+.hud{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;
+  padding:14px 20px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink);
+  background:linear-gradient(180deg, rgba(239,238,234,.92), rgba(239,238,234,0));}
+.hud .logo{font-weight:500;letter-spacing:.28em}
+.hud .meter{display:flex;align-items:center;gap:8px}
+.hud .bar{width:72px;height:3px;background:var(--line);position:relative;overflow:hidden}
+.hud .bar i{position:absolute;left:0;top:0;bottom:0;width:0%;background:var(--oasis-deep);transition:width .3s ease, background 1.6s ease}
+
+.wrap{max-width:640px;margin:0 auto;padding:0 24px}
+
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--sand);
+  display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+body.hydrated .eyebrow{color:var(--oasis-deep)}
+
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:110px 0 60px}
+.hero h1{font-family:var(--serif);font-weight:200;font-size:clamp(34px,8.5vw,58px);line-height:1.32;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;font-weight:400;position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:var(--ink);opacity:.35}
+.hero .sub{margin-top:26px;font-size:15px;line-height:1.8;color:var(--sand);max-width:38ch}
+.coords{margin-top:52px;font-family:var(--mono);font-size:11px;color:var(--sand);letter-spacing:.1em;line-height:2.1}
+.coords b{color:var(--ink);font-weight:500}
+.scroll-cue{margin-top:60px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--sand);
+  display:inline-flex;align-items:center;gap:10px}
+.scroll-cue::after{content:"";width:1px;height:36px;background:var(--sand);animation:drip 2.2s ease infinite;transform-origin:top}
+@keyframes drip{0%{transform:scaleY(0)}55%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+.cracked{position:relative;color:var(--ink)}
+body:not(.hydrated) .cracked{
+  background:linear-gradient(105deg, var(--ink) 40%, rgba(20,20,18,.45) 41%, var(--ink) 42%, var(--ink) 68%, rgba(20,20,18,.4) 69%, var(--ink) 70%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+.ritual{padding:90px 0 110px;text-align:center}
+.ritual h2{font-family:var(--serif);font-weight:300;font-size:clamp(24px,5.6vw,34px);line-height:1.5;margin-bottom:14px}
+.ritual p{font-size:14px;color:var(--sand);line-height:1.8;margin-bottom:56px}
+.well{position:relative;width:min(240px,64vw);aspect-ratio:1;margin:0 auto;border-radius:50%;
+  border:1px solid var(--line);cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent;
+  overflow:hidden;background:#fff;touch-action:none;
+  transition:box-shadow .6s ease, border-color 1s ease}
+.well:focus-visible{outline:2px solid var(--oasis-deep);outline-offset:6px}
+.well .water{position:absolute;left:-25%;right:-25%;bottom:0;height:0%;background:var(--oasis);opacity:.85;
+  transition:height .12s linear, background 1.6s ease}
+.well .water::before,.well .water::after{content:"";position:absolute;top:-14px;left:0;width:200%;height:28px;
+  background:inherit;border-radius:45%;animation:wave 4.5s linear infinite}
+.well .water::after{border-radius:40%;opacity:.5;animation-duration:6.5s}
+@keyframes wave{to{transform:translateX(-50%) rotate(0.01deg)}}
+.well .pct{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;
+  font-family:var(--mono);z-index:2;mix-blend-mode:multiply}
+.well .pct b{font-size:34px;font-weight:400;letter-spacing:.02em}
+.well .pct span{font-size:10px;letter-spacing:.24em;color:var(--sand)}
+.well.done{border-color:var(--oasis-deep);box-shadow:0 0 0 10px rgba(79,167,157,.10), 0 0 70px rgba(79,167,157,.35)}
+.ritual .hint{margin-top:34px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--sand)}
+.ritual .hint.done{color:var(--oasis-deep)}
+
+.locked{opacity:0;transform:translateY(24px);pointer-events:none;filter:grayscale(1);
+  transition:opacity 1.1s ease, transform 1.1s ease, filter 1.4s ease}
+body.hydrated .locked{opacity:1;transform:none;pointer-events:auto;filter:none}
+section.log{padding:90px 0;border-top:1px solid var(--line)}
+
+.oasis h2{font-family:var(--serif);font-weight:300;font-size:clamp(28px,6.5vw,42px);line-height:1.45}
+.oasis h2 em{font-style:normal;color:var(--oasis-deep);font-weight:400}
+.oasis .body{margin-top:26px;font-size:15px;line-height:1.9;color:#4c4b46;max-width:44ch}
+.spec{margin-top:44px;border-top:1px solid var(--line)}
+.spec div{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px}
+.spec dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--sand);flex-shrink:0;padding-top:2px}
+.spec dd{text-align:right;line-height:1.6;max-width:60%}
+
+.quiz .q{margin-bottom:8px;display:none}
+.quiz .q.on{display:block;animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.quiz .qnum{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--oasis-deep);margin-bottom:14px}
+.quiz h3{font-family:var(--serif);font-weight:300;font-size:clamp(21px,5vw,27px);line-height:1.55;margin-bottom:30px}
+.opt{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);
+  padding:16px 18px;margin-bottom:10px;font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink);
+  cursor:pointer;transition:border-color .2s, background .2s, transform .15s}
+.opt:hover{border-color:var(--oasis-deep);background:var(--glow)}
+.opt:active{transform:scale(.985)}
+.opt .k{font-family:var(--mono);font-size:11px;color:var(--sand);margin-right:10px}
+.tresult{display:none;text-align:center;padding:20px 0 0;animation:fade .6s ease}
+.tresult.on{display:block}
+.tresult .tag{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--oasis-deep);margin-bottom:16px}
+.tresult h3{font-family:var(--serif);font-weight:300;font-size:clamp(26px,6vw,36px);margin-bottom:14px}
+.tresult p{font-size:14px;color:#4c4b46;line-height:1.85;max-width:40ch;margin:0 auto}
+.tresult .lvl{margin:30px auto 0;font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--sand)}
+.tresult .lvl b{color:var(--oasis-deep);font-size:15px}
+
+.join h2{font-family:var(--serif);font-weight:300;font-size:clamp(24px,5.6vw,32px);line-height:1.5;margin-bottom:26px}
+.form-grid{display:flex;flex-direction:column;gap:18px;margin-top:8px}
+.field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--sand);margin-bottom:8px}
+.field input{width:100%;background:#fff;border:1px solid var(--line);padding:15px 16px;font-family:var(--sans);
+  font-size:15px;color:var(--ink);transition:border-color .2s}
+.field input:focus{outline:none;border-color:var(--oasis-deep)}
+.field input::placeholder{color:#b9b8b2}
+.field input.err{border-color:#C0564B}
+.consent{background:#fff;border:1px solid var(--line);padding:16px 18px}
+.consent.err{border-color:#C0564B}
+.consent .row{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.consent input{width:16px;height:16px;margin-top:2px;accent-color:var(--oasis-deep);flex-shrink:0;cursor:pointer}
+.consent .t{font-size:13px;font-weight:600;line-height:1.5}
+.consent details{margin-top:10px}
+.consent summary{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--sand);cursor:pointer}
+.consent details p{margin-top:8px;font-size:12px;color:var(--sand);line-height:1.7}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:10px;width:100%;
+  background:var(--ink);color:var(--bone);border:none;padding:18px;margin-top:10px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.22em;cursor:pointer;transition:background .25s, transform .15s, opacity .2s}
+.btn:hover{background:var(--oasis-deep)}
+.btn:active{transform:scale(.99)}
+.btn[disabled]{opacity:.5;cursor:wait}
+.note{margin-top:14px;font-size:12px;color:var(--sand);line-height:1.7;text-align:center}
+.formerr{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:#C0564B;text-align:center;min-height:16px}
+
+.cardzone{display:none;animation:fade .7s ease}
+.cardzone.on{display:block}
+.crewcard{background:var(--ink);color:var(--bone);padding:34px 28px;position:relative;overflow:hidden;
+  box-shadow:0 24px 60px rgba(20,20,18,.28)}
+.crewcard::before{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle, rgba(79,167,157,.5), transparent 70%)}
+.crewcard .cc-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:#8f8e88;margin-bottom:40px}
+.crewcard .cc-no{font-family:var(--mono);font-size:clamp(28px,7vw,38px);letter-spacing:.06em;color:#fff;margin-bottom:6px}
+.crewcard .cc-name{font-family:var(--serif);font-weight:300;font-size:17px;color:#d8d7d1;margin-bottom:30px}
+.crewcard .cc-rows{border-top:1px solid rgba(239,238,234,.18)}
+.crewcard .cc-rows div{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(239,238,234,.14);font-size:12px}
+.crewcard .cc-rows dt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:#8f8e88;padding-top:2px}
+.crewcard .cc-rows dd{color:#eceae4;text-align:right}
+.crewcard .stamp{position:absolute;right:22px;bottom:20px;width:78px;height:78px;border:1px solid rgba(79,167,157,.9);
+  border-radius:50%;display:flex;justify-content:center;align-items:center;text-align:center;
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;line-height:1.7;color:#7fd0c7;transform:rotate(-12deg)}
+.sharebar{display:flex;gap:10px;margin-top:18px}
+.sharebar .btn{margin-top:0;flex:1}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.ghost:hover{background:var(--glow);border-color:var(--oasis-deep);color:var(--oasis-deep)}
+.copied{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--oasis-deep);text-align:center;margin-top:12px;min-height:16px}
+
+footer{padding:70px 0 60px;border-top:1px solid var(--line);text-align:center}
+footer .fl{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--sand)}
+footer p{margin-top:12px;font-size:12px;color:var(--sand)}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="hud">
+  <div class="logo" id="hudLogo"></div>
+  <div class="meter"><span><span id="hudLabel"></span> <b id="hudPct">0</b>%</span><div class="bar"><i id="hudBar"></i></div></div>
+</div>
+
+<main class="wrap">
+
+  <!-- LOG 01 -->
+  <section class="hero">
+    <div class="eyebrow" id="e1"></div>
+    <h1 class="cracked" id="heroTitle"></h1>
+    <p class="sub" id="heroSub"></p>
+    <div class="coords" id="coords"></div>
+    <div class="scroll-cue" id="scrollCue"></div>
+  </section>
+
+  <!-- LOG 02 -->
+  <section class="ritual">
+    <div class="eyebrow" id="e2"></div>
+    <h2 id="ritualTitle"></h2>
+    <p id="ritualBody"></p>
+    <div class="well" id="well" role="button" tabindex="0" aria-label="길게 눌러 수분 채우기. 스페이스 키를 누르고 있어도 됩니다.">
+      <div class="water" id="water"></div>
+      <div class="pct"><b id="pct">0%</b><span id="wellLabel"></span></div>
+    </div>
+    <div class="hint" id="hint"></div>
+  </section>
+
+  <!-- LOG 03 -->
+  <section class="log oasis locked" id="oasisSec">
+    <div class="eyebrow" id="e3"></div>
+    <h2 id="oasisTitle"></h2>
+    <p class="body" id="oasisBody"></p>
+    <dl class="spec" id="spec"></dl>
+  </section>
+
+  <!-- LOG 04 -->
+  <section class="log quiz locked" id="quizSec">
+    <div class="eyebrow" id="e4"></div>
+    <div id="quizZone"></div>
+    <div class="tresult" id="tresult">
+      <div class="tag" id="ttTag"></div>
+      <h3 id="ttName"></h3>
+      <p id="ttDesc"></p>
+      <div class="lvl" id="ttLvl"></div>
+    </div>
+  </section>
+
+  <!-- LOG 05 -->
+  <section class="log join locked" id="joinSec">
+    <div class="eyebrow" id="e5"></div>
+    <h2 id="joinTitle"></h2>
+
+    <div id="formZone" class="form-grid">
+      <div class="field"><label for="fCode" id="lCode"></label>
+        <input id="fCode" type="text" maxlength="12" autocomplete="off"></div>
+      <div class="field"><label for="fName" id="lName"></label>
+        <input id="fName" type="text" maxlength="20" autocomplete="name"></div>
+      <div class="field"><label for="fTw" id="lTw"></label>
+        <input id="fTw" type="text" maxlength="20" autocomplete="off"></div>
+      <div class="field"><label for="fPhone" id="lPhone"></label>
+        <input id="fPhone" type="tel" maxlength="20" autocomplete="tel"></div>
+      <div class="field"><label for="fAddr" id="lAddr"></label>
+        <input id="fAddr" type="text" maxlength="120" autocomplete="street-address"></div>
+
+      <div class="consent" id="consentBox">
+        <label class="row">
+          <input type="checkbox" id="fConsent">
+          <span class="t" id="consentTitle"></span>
+        </label>
+        <details>
+          <summary>자세히 보기</summary>
+          <p id="consentDetail"></p>
+        </details>
+      </div>
+
+      <button class="btn" id="issueBtn"></button>
+      <div class="formerr" id="formErr"></div>
+      <p class="note" id="joinNote"></p>
+    </div>
+
+    <div class="cardzone" id="cardZone">
+      <div class="crewcard">
+        <div class="cc-top"><span id="ccTopL"></span><span id="ccTopR"></span></div>
+        <div class="cc-no" id="ccNo">TC-0000</div>
+        <div class="cc-name" id="ccName"></div>
+        <dl class="cc-rows">
+          <div><dt>THIRST TYPE</dt><dd id="ccType"></dd></div>
+          <div><dt>갈증 지수</dt><dd id="ccLvl"></dd></div>
+          <div><dt>MISSION</dt><dd id="ccMission"></dd></div>
+          <div><dt>DESTINATION</dt><dd id="ccDest"></dd></div>
+        </dl>
+        <div class="stamp">OASIS<br>FOUND<br>· hince ·</div>
+      </div>
+      <div class="sharebar">
+        <button class="btn" id="tweetBtn"></button>
+        <button class="btn ghost" id="copyBtn"></button>
+      </div>
+      <div class="copied" id="copied"></div>
+    </div>
+  </section>
+
+  <footer class="locked">
+    <div class="fl" id="footLogo"></div>
+    <p id="footTags"></p>
+  </footer>
+
+</main>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── *별표* → 강조(em) 변환 ── */
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const em=s=>esc(s).replace(/\*(.+?)\*/g,'<em>$1</em>');
+  const lines=arr=>arr.map(em).join('<br>');
+
+  /* ── 문안 주입 ── */
+  $('hudLogo').textContent=COPY.로고;
+  $('hudLabel').textContent=COPY.게이지라벨;
+
+  $('e1').textContent=COPY.로그01.라벨;
+  $('heroTitle').innerHTML=lines(COPY.로그01.제목);
+  $('heroSub').textContent=COPY.로그01.본문;
+  $('coords').innerHTML=COPY.로그01.좌표.map(r=>esc(r[0])+' · <b>'+esc(r[1])+'</b>').join('<br>');
+  $('scrollCue').textContent=COPY.로그01.스크롤안내;
+
+  $('e2').textContent=COPY.로그02.라벨;
+  $('ritualTitle').innerHTML=lines(COPY.로그02.제목);
+  $('ritualBody').textContent=COPY.로그02.본문;
+  $('wellLabel').textContent=COPY.로그02.우물안내;
+  $('hint').textContent=COPY.로그02.힌트;
+
+  $('e3').textContent=COPY.로그03.라벨;
+  $('oasisTitle').innerHTML=lines(COPY.로그03.제목);
+  $('oasisBody').textContent=COPY.로그03.본문;
+  $('spec').innerHTML=COPY.로그03.스펙.map(r=>'<div><dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd></div>').join('');
+
+  $('e4').textContent=COPY.로그04.라벨;
+  $('ttTag').textContent=COPY.로그04.결과태그;
+  const ABC=['A','B','C','D','E'];
+  $('quizZone').innerHTML=COPY.로그04.질문들.map((q,i)=>
+    '<div class="q'+(i===0?' on':'')+'" data-q="'+(i+1)+'">'
+    +'<div class="qnum">Q.0'+(i+1)+' / 0'+COPY.로그04.질문들.length+'</div>'
+    +'<h3>'+lines(q.질문)+'</h3>'
+    +q.보기.map((o,j)=>'<button class="opt" data-v="'+(j+1)+'"><span class="k">'+ABC[j]+'</span>'+esc(o)+'</button>').join('')
+    +'</div>').join('');
+
+  $('e5').textContent=COPY.로그05.라벨;
+  $('joinTitle').innerHTML=lines(COPY.로그05.제목);
+  const F=COPY.로그05.폼;
+  $('lCode').textContent=F.코드네임; $('fCode').placeholder=F.코드네임예시;
+  $('lName').textContent=F.본명; $('fName').placeholder=F.본명예시;
+  $('lTw').textContent=F.트위터; $('fTw').placeholder=F.트위터예시;
+  $('lPhone').textContent=F.연락처; $('fPhone').placeholder=F.연락처예시;
+  $('lAddr').textContent=F.주소; $('fAddr').placeholder=F.주소예시;
+  $('consentTitle').textContent=COPY.로그05.동의제목;
+  $('consentDetail').textContent=COPY.로그05.동의상세;
+  $('issueBtn').textContent=COPY.로그05.발급버튼;
+  $('joinNote').textContent=COPY.로그05.안내문;
+  $('ccTopL').textContent=COPY.로그05.카드고정.상단좌;
+  $('ccTopR').textContent=COPY.로고;
+  $('ccMission').textContent=COPY.로그05.카드고정.미션;
+  $('ccDest').textContent=COPY.로그05.카드고정.목적지;
+  $('tweetBtn').textContent=COPY.로그05.트윗버튼;
+  $('copyBtn').textContent=COPY.로그05.복사버튼;
+
+  $('footLogo').textContent=COPY.푸터로고;
+  $('footTags').textContent=COPY.푸터해시태그;
+
+  /* ── 수분 의식 (press & hold) ── */
+  const body=document.body, well=$('well'), water=$('water');
+  let level=0, holding=false, raf=null, done=false;
+  function render(){
+    const v=Math.round(level);
+    water.style.height=level+'%';
+    $('pct').textContent=v+'%';
+    $('hudPct').textContent=v;
+    $('hudBar').style.width=v+'%';
+  }
+  function tick(){
+    if(done)return;
+    level+= holding ? (reduce?4:0.9) : -0.6;
+    level=Math.max(0,Math.min(100,level));
+    render();
+    if(level>=100){finish();return;}
+    if(holding||level>0){raf=requestAnimationFrame(tick);}else{raf=null;}
+  }
+  function start(e){ if(done)return; if(e.type==='keydown'&&e.repeat)return; holding=true; if(!raf)raf=requestAnimationFrame(tick); }
+  function stop(){ holding=false; }
+  function finish(){
+    done=true; holding=false; level=100; render();
+    well.classList.add('done');
+    $('hint').textContent=COPY.로그02.완료힌트;
+    $('hint').classList.add('done');
+    body.classList.add('hydrated');
+    setTimeout(()=>{$('oasisSec').scrollIntoView({behavior:reduce?'auto':'smooth'});},900);
+  }
+  well.addEventListener('pointerdown',start);
+  addEventListener('pointerup',stop);
+  addEventListener('pointercancel',stop);
+  well.addEventListener('keydown',e=>{if(e.code==='Space'||e.code==='Enter'){e.preventDefault();start(e);}});
+  well.addEventListener('keyup',e=>{if(e.code==='Space'||e.code==='Enter')stop();});
+  well.addEventListener('contextmenu',e=>e.preventDefault());
+
+  /* ── 갈증 문답 ── */
+  const answers=[];
+  let quizDone=false, myType=null, myLvl=0;
+  document.querySelectorAll('#quizZone .opt').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      if(quizDone)return;
+      answers.push(+btn.dataset.v);
+      const cur=btn.closest('.q');
+      const next=document.querySelector('.q[data-q="'+(answers.length+1)+'"]');
+      cur.classList.remove('on');
+      if(next){next.classList.add('on');next.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});}
+      else showResult();
+    });
+  });
+  function showResult(){
+    quizDone=true;
+    const counts={};
+    answers.forEach(v=>counts[v]=(counts[v]||0)+1);
+    const key=Object.keys(counts).sort((a,b)=>counts[b]-counts[a])[0];
+    myType=COPY.로그04.타입들[key-1]||COPY.로그04.타입들[0];
+    myLvl=70+Math.floor(Math.random()*30);
+    $('ttName').textContent=myType.이름;
+    $('ttDesc').textContent=myType.설명;
+    const lvlHtml=esc(COPY.로그04.지수문구).replace('{지수}','<b>'+myLvl+'</b>');
+    $('ttLvl').innerHTML=lvlHtml;
+    $('tresult').classList.add('on');
+    $('tresult').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+  }
+
+  /* ── 신청: 검증 → 구글 시트 전송 → 카드 발급 ── */
+  let crewNo='';
+  function tweetText(){
+    return COPY.트윗문구.join('\n')
+      .replace('{크루번호}',crewNo)
+      .replace('{지수}',myLvl)
+      .replace('{타입}',myType?myType.이름:'');
+  }
+  $('issueBtn').addEventListener('click',async()=>{
+    /* 필수값 검증 */
+    const realName=$('fName').value.trim();
+    let tw=$('fTw').value.trim();
+    const phone=$('fPhone').value.trim();
+    const addr=$('fAddr').value.trim();
+    const consent=$('fConsent').checked;
+    let ok=true;
+    [['fName',realName],['fTw',tw],['fPhone',phone],['fAddr',addr]].forEach(([id,v])=>{
+      $(id).classList.toggle('err',!v);
+      if(!v)ok=false;
+    });
+    $('consentBox').classList.toggle('err',!consent);
+    if(!consent)ok=false;
+    if(!ok){$('formErr').textContent='필수 항목을 모두 입력하고 동의에 체크해 주세요.';return;}
+    $('formErr').textContent='';
+    if(tw&&!tw.startsWith('@'))tw='@'+tw;
+
+    if(!myType){myType=COPY.로그04.타입들[1];myLvl=70+Math.floor(Math.random()*30);}
+    crewNo='TC-'+String(Math.floor(1000+Math.random()*9000));
+    const codename=$('fCode').value.trim()||realName;
+
+    /* 구글 시트 전송 */
+    const btn=$('issueBtn');
+    btn.disabled=true; btn.textContent='전송 중…';
+    const payload={
+      crewNo:crewNo, codename:codename, realName:realName,
+      twitter:tw, phone:phone, address:addr,
+      thirstType:myType.이름, thirstLvl:myLvl,
+      consent:consent?'동의':'', page:'THIRSTY CREW 티징'
+    };
+    if(COPY.구글시트URL){
+      try{
+        await fetch(COPY.구글시트URL,{method:'POST',mode:'no-cors',body:JSON.stringify(payload)});
+      }catch(err){ console.warn('시트 전송 실패:',err); }
+    }else{
+      console.warn('구글시트URL이 비어 있어 데이터가 전송되지 않았습니다. (문안 수정 구역 맨 아래에서 설정)');
+    }
+    btn.disabled=false; btn.textContent=COPY.로그05.발급버튼;
+
+    /* 카드 발급 */
+    $('ccNo').textContent=crewNo;
+    $('ccName').textContent=codename+(tw?' · '+tw:'');
+    $('ccType').textContent=myType.이름;
+    $('ccLvl').textContent=myLvl+' / 100';
+    $('formZone').style.display='none';
+    $('cardZone').classList.add('on');
+    $('cardZone').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+  });
+
+  $('tweetBtn').addEventListener('click',()=>{
+    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(tweetText()),'_blank');
+  });
+  $('copyBtn').addEventListener('click',async()=>{
+    try{
+      await navigator.clipboard.writeText(tweetText());
+      $('copied').textContent=COPY.로그05.복사완료;
+    }catch(e){
+      $('copied').textContent='복사 실패 — 문구를 길게 눌러 직접 복사해 주세요';
+    }
+    setTimeout(()=>{$('copied').textContent='';},2500);
+  });
+})();
+</script>
+</body>
+</html>
