@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -127,8 +128,19 @@ const COPY = {
       트위터예시: "@zigi_mokmalayo",
       연락처: "연락처",
       연락처예시: "010-0000-0000",
+      연락처오류: "연락처를 010-0000-0000 형식으로 정확히 입력해 주세요.",
+      우편번호: "우편번호",
+      우편번호예시: "01234",
+      우편번호오류: "우편번호 5자리를 정확히 입력해 주세요.",
       주소: "주소 (제품 배송지)",
       주소예시: "도로명 주소 + 상세 주소"
+    },
+    책임고지: {
+      제목: "발급 전, 마지막 확인",
+      본문: "정확한 정보를 입력했는지 다시 한 번 확인해 주세요! 주소·우편번호·연락처가 부정확하여 배송이 불가하거나 제품을 수령하지 못하는 경우, 재발송이 어려우며 그 책임은 신청자 본인에게 있습니다. 발송 전 다시 한번 확인해 주세요.",
+      체크문구: "확인했습니다. 입력한 배송 정보에 이상이 없습니다.",
+      확인버튼: "확인 완료 — 발급 진행",
+      취소버튼: "다시 확인할게요"
     },
     동의제목: "개인정보 수집·이용에 동의합니다 (필수)",
     동의상세: "수집 항목: 이름, X(트위터) 계정, 연락처, 주소 · 수집 목적: 체험단 선정 및 제품 배송 · 보유 기간: 체험단 운영 종료 후 즉시 파기 · 동의를 거부할 수 있으나, 거부 시 체험단 신청이 제한됩니다.",
@@ -149,12 +161,12 @@ const COPY = {
     "🏜️ 사막을 건너 오아시스를 찾았습니다.",
     "THIRSTY CREW {크루번호} — 갈증 지수 {지수}/100 ({타입})",
     "마르지 않는 피부 위 오아시스,선발 탐사에 지원합니다.",
-    " @hince_official #힌스 #누글로우화이트쿠션 #THIRSTYCREW #마르지않는오아시스"
+    " @hince_official "#힌스 #누글로우화이트쿠션 #차세대글로우 #히알먹쿠션 #THIRSTYCREW"
   ],
 
   /* ── 하단 ── */
   푸터로고: "HINCE — NU GLOW WHITE CUSHION",
-  푸터해시태그: "#힌스 #누글로우화이트쿠션 #THIRSTYCREW #마르지않는오아시스",
+  푸터해시태그: "#힌스 #누글로우화이트쿠션 #차세대글로우 #히알먹쿠션 #THIRSTYCREW ",
 
   /* ═══════════════════════════════════════════════════
      🔗 구글 시트 연결 주소
@@ -313,6 +325,24 @@ section.log{padding:90px 0;border-top:1px solid var(--line)}
 .btn[disabled]{opacity:.5;cursor:wait}
 .note{margin-top:14px;font-size:12px;color:var(--sand);line-height:1.7;text-align:center}
 .formerr{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:#C0564B;text-align:center;min-height:16px}
+.ferr{margin-top:6px;font-size:12px;color:#C0564B;line-height:1.5;display:none}
+.ferr.on{display:block}
+
+/* ── 발급 전 확인 모달 ── */
+.modal-bg{position:fixed;inset:0;z-index:100;background:rgba(20,20,18,.55);backdrop-filter:blur(3px);
+  display:none;justify-content:center;align-items:center;padding:24px}
+.modal-bg.on{display:flex;animation:fade .25s ease}
+.modal{background:var(--bone);max-width:420px;width:100%;padding:30px 26px;box-shadow:0 30px 80px rgba(20,20,18,.4)}
+.modal .m-tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--oasis-deep);margin-bottom:14px}
+.modal h3{font-family:var(--serif);font-weight:300;font-size:21px;line-height:1.45;margin-bottom:14px}
+.modal .m-body{font-size:13.5px;line-height:1.85;color:#4c4b46;margin-bottom:20px}
+.modal .m-check{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--line);
+  padding:14px 16px;cursor:pointer;margin-bottom:18px}
+.modal .m-check input{width:16px;height:16px;margin-top:2px;accent-color:var(--oasis-deep);flex-shrink:0;cursor:pointer}
+.modal .m-check span{font-size:13px;font-weight:600;line-height:1.5}
+.modal .m-btns{display:flex;flex-direction:column;gap:8px}
+.modal .m-btns .btn{margin-top:0}
+.modal .btn[disabled]{opacity:.35;cursor:not-allowed}
 
 .cardzone{display:none;animation:fade .7s ease}
 .cardzone.on{display:block}
@@ -348,6 +378,23 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
 </head>
 <body>
 <div class="grain"></div>
+
+<!-- 발급 전 확인 모달 -->
+<div class="modal-bg" id="modalBg" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal">
+    <div class="m-tag">FINAL CHECK</div>
+    <h3 id="mTitle"></h3>
+    <p class="m-body" id="mBody"></p>
+    <label class="m-check">
+      <input type="checkbox" id="mCheck">
+      <span id="mCheckText"></span>
+    </label>
+    <div class="m-btns">
+      <button class="btn" id="mConfirm" disabled></button>
+      <button class="btn ghost" id="mCancel"></button>
+    </div>
+  </div>
+</div>
 
 <div class="hud">
   <div class="logo" id="hudLogo"></div>
@@ -410,7 +457,11 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
       <div class="field"><label for="fTw" id="lTw"></label>
         <input id="fTw" type="text" maxlength="20" autocomplete="off"></div>
       <div class="field"><label for="fPhone" id="lPhone"></label>
-        <input id="fPhone" type="tel" maxlength="20" autocomplete="tel"></div>
+        <input id="fPhone" type="tel" maxlength="13" inputmode="numeric" autocomplete="tel">
+        <div class="ferr" id="phoneErr"></div></div>
+      <div class="field"><label for="fZip" id="lZip"></label>
+        <input id="fZip" type="text" maxlength="5" inputmode="numeric" autocomplete="postal-code">
+        <div class="ferr" id="zipErr"></div></div>
       <div class="field"><label for="fAddr" id="lAddr"></label>
         <input id="fAddr" type="text" maxlength="120" autocomplete="street-address"></div>
 
@@ -506,7 +557,14 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
   $('lName').textContent=F.본명; $('fName').placeholder=F.본명예시;
   $('lTw').textContent=F.트위터; $('fTw').placeholder=F.트위터예시;
   $('lPhone').textContent=F.연락처; $('fPhone').placeholder=F.연락처예시;
+  $('lZip').textContent=F.우편번호; $('fZip').placeholder=F.우편번호예시;
   $('lAddr').textContent=F.주소; $('fAddr').placeholder=F.주소예시;
+  const 고지=COPY.로그05.책임고지;
+  $('mTitle').textContent=고지.제목;
+  $('mBody').textContent=고지.본문;
+  $('mCheckText').textContent=고지.체크문구;
+  $('mConfirm').textContent=고지.확인버튼;
+  $('mCancel').textContent=고지.취소버튼;
   $('consentTitle').textContent=COPY.로그05.동의제목;
   $('consentDetail').textContent=COPY.로그05.동의상세;
   $('issueBtn').textContent=COPY.로그05.발급버튼;
@@ -585,7 +643,7 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
     $('tresult').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
   }
 
-  /* ── 신청: 검증 → 구글 시트 전송 → 카드 발급 ── */
+  /* ── 신청: 검증 → 확인 모달 → 구글 시트 전송 → 카드 발급 ── */
   let crewNo='';
   function tweetText(){
     return COPY.트윗문구.join('\n')
@@ -593,36 +651,84 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
       .replace('{지수}',myLvl)
       .replace('{타입}',myType?myType.이름:'');
   }
-  $('issueBtn').addEventListener('click',async()=>{
+
+  /* 연락처 자동 하이픈 (숫자만 입력해도 010-0000-0000으로 정리) */
+  $('fPhone').addEventListener('input',()=>{
+    const d=$('fPhone').value.replace(/\D/g,'').slice(0,11);
+    let v=d;
+    if(d.length>7)v=d.slice(0,3)+'-'+d.slice(3,7)+'-'+d.slice(7);
+    else if(d.length>3)v=d.slice(0,3)+'-'+d.slice(3);
+    $('fPhone').value=v;
+  });
+  $('fZip').addEventListener('input',()=>{
+    $('fZip').value=$('fZip').value.replace(/\D/g,'').slice(0,5);
+  });
+
+  $('issueBtn').addEventListener('click',()=>{
     /* 필수값 검증 */
     const realName=$('fName').value.trim();
     let tw=$('fTw').value.trim();
     const phone=$('fPhone').value.trim();
+    const zip=$('fZip').value.trim();
     const addr=$('fAddr').value.trim();
     const consent=$('fConsent').checked;
     let ok=true;
-    [['fName',realName],['fTw',tw],['fPhone',phone],['fAddr',addr]].forEach(([id,v])=>{
+    [['fName',realName],['fTw',tw],['fPhone',phone],['fZip',zip],['fAddr',addr]].forEach(([id,v])=>{
       $(id).classList.toggle('err',!v);
       if(!v)ok=false;
     });
+    /* 연락처 형식 검증: 010-0000-0000 */
+    const phoneOk=/^010-\d{4}-\d{4}$/.test(phone);
+    $('phoneErr').textContent=phone&&!phoneOk?COPY.로그05.폼.연락처오류:'';
+    $('phoneErr').classList.toggle('on',!!phone&&!phoneOk);
+    if(phone&&!phoneOk){$('fPhone').classList.add('err');ok=false;}
+    /* 우편번호 형식 검증: 숫자 5자리 */
+    const zipOk=/^\d{5}$/.test(zip);
+    $('zipErr').textContent=zip&&!zipOk?COPY.로그05.폼.우편번호오류:'';
+    $('zipErr').classList.toggle('on',!!zip&&!zipOk);
+    if(zip&&!zipOk){$('fZip').classList.add('err');ok=false;}
+
     $('consentBox').classList.toggle('err',!consent);
     if(!consent)ok=false;
-    if(!ok){$('formErr').textContent='필수 항목을 모두 입력하고 동의에 체크해 주세요.';return;}
+    if(!ok){$('formErr').textContent='필수 항목을 모두 정확히 입력하고 동의에 체크해 주세요.';return;}
     $('formErr').textContent='';
+
+    /* 발급 전 배송 정보 확인 모달 열기 */
+    $('mCheck').checked=false;
+    $('mConfirm').disabled=true;
+    $('modalBg').classList.add('on');
+  });
+
+  /* 모달 동작 */
+  $('mCheck').addEventListener('change',()=>{ $('mConfirm').disabled=!$('mCheck').checked; });
+  $('mCancel').addEventListener('click',()=>{ $('modalBg').classList.remove('on'); });
+  $('modalBg').addEventListener('click',e=>{ if(e.target===$('modalBg'))$('modalBg').classList.remove('on'); });
+  $('mConfirm').addEventListener('click',async()=>{
+    if(!$('mCheck').checked)return;
+    $('modalBg').classList.remove('on');
+    await submitAndIssue();
+  });
+
+  async function submitAndIssue(){
+    const realName=$('fName').value.trim();
+    let tw=$('fTw').value.trim();
+    const phone=$('fPhone').value.trim();
+    const zip=$('fZip').value.trim();
+    const addr=$('fAddr').value.trim();
     if(tw&&!tw.startsWith('@'))tw='@'+tw;
 
     if(!myType){myType=COPY.로그04.타입들[1];myLvl=70+Math.floor(Math.random()*30);}
     crewNo='TC-'+String(Math.floor(1000+Math.random()*9000));
     const codename=$('fCode').value.trim()||realName;
 
-    /* 구글 시트 전송 */
+    /* 구글 시트 전송 (주소 칸에 [우편번호] 주소 형태로 저장) */
     const btn=$('issueBtn');
     btn.disabled=true; btn.textContent='전송 중…';
     const payload={
       crewNo:crewNo, codename:codename, realName:realName,
-      twitter:tw, phone:phone, address:addr,
+      twitter:tw, phone:phone, address:'['+zip+'] '+addr,
       thirstType:myType.이름, thirstLvl:myLvl,
-      consent:consent?'동의':'', page:'THIRSTY CREW 티징'
+      consent:'동의', page:'THIRSTY CREW 티징'
     };
     if(COPY.구글시트URL){
       try{
@@ -641,7 +747,7 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
     $('formZone').style.display='none';
     $('cardZone').classList.add('on');
     $('cardZone').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
-  });
+  }
 
   $('tweetBtn').addEventListener('click',()=>{
     window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(tweetText()),'_blank');
