@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -41,17 +42,17 @@ const COPY = {
     좌표: [
       ["DEHYDRATION ALERT", "LV.04"],
       ["DISTANCE TO OASIS", "UNKNOWN"],
-      ["CREW STATUS", "모집 중"]
+      ["CREW STATUS", "THIRSTY CREW 모집 중"]
     ],
     스크롤안내: "여기서 — 오아시스의 흔적 발견👀"
   },
 
   /* ── LOG 02 · 꾹 눌러 수분 채우기 ── */
   로그02: {
-    라벨: "LOG 02 · Misson🚨 — 마르지 않는 히알먹 피부를 완성하세요.",
+    라벨: "LOG 02 · Misson🚨 — 마르지 않는 #히알먹 피부를 완성하세요.",
     제목: [
-      "메마른 물방울 안에",
-      "수분을 채워야 길이 열려요!"
+      "수분을 채워야 길이 열려요!",
+      "수분 게이지 상승 중! 🫗"
     ],
     본문: "아래 버튼을 길게 눌러 보세요. 손을 떼면 다시 마릅니다.",
     우물안내: "PRESS & HOLD",
@@ -59,18 +60,18 @@ const COPY = {
     완료힌트: "OASIS FOUND — 오아시스가 열렸습니다"
   },
 
-  /* ── LOG 03 · 오아시스 발견 (제품 소개) ── */
+  /* ── LOG 03 · 오아시스 발견 ── */
   로그03: {
     라벨: "LOG 03 · 발견 — 신기루가 아니었다!😱",
     제목: [
       "마르지 않는,",
       "피부 위 *오아시스.*"
     ],
-    본문: "사막 한가운데서 찾은 건 신기루가 아니라 진짜 오아시스였다! hince에서 새로운 오아시스를 발견했습니다. 힌스지기와 함께 오아시스를 경험해 보세요.",
+    본문: "사막 한가운데서 찾은 건 신기루가 아니었다! 목마른 와중에 등장한 차세대 NEW 글로우 쿠션이라니..//힌스지기와 함께 오아시스를 경험해 보세요.",
     스펙: [
-      ["EXPEDITION", "hince 누 글로우 화이트 쿠션 사전 체험 "],
-      ["RECRUIT", "THIRSTY CREW 모집 (트위터 한정)"],
-      ["MISSION", "오아시스를 가장 먼저 경험하고 탐사 기록(리뷰)을 남기는 것"],
+      ["EXPEDITION", "hince 누 글로우 화이트 쿠션 사전 체험"],
+      ["RECRUIT", "THIRSTY CREW 모집"],
+      ["MISSION", "오아시스를 경험하고 기록(리뷰)을 남기는 것"],
       ["REWARD", "신제품 증정"]
     ]
   },
@@ -92,7 +93,7 @@ const COPY = {
         보기: [
           "일단 조용히 물 한 모금 — 신중하게 확인부터",
           "머리부터 풍덩 — 온몸으로 느껴야 직성이 풀림",
-          "친구들 전원 소집 — 좋은 건 같이 마셔야지 (트위터에 좌표 공유)"
+          "친구들 전원 소집 — 좋은 건 같이 마셔야지 (트위터에 정보 공유)"
         ]
       },
       {
@@ -107,9 +108,9 @@ const COPY = {
     결과태그: "THIRST TYPE ANALYZED",
     /* 보기에서 A를 많이 고르면 타입1, B는 타입2, C는 타입3이 나옵니다 */
     타입들: [
-      { 이름: "세심하고 고요한 워커", 설명: "서두르지 않지만 확실한 것을 원하는 타입. 은은하게, 그러나 하루 종일 마르지 않는 글로우가 당신의 오아시스입니다." },
+      { 이름: "세심하고 고요한 워커", 설명: "서두르지 않지만 확실하게! 20겹* 히알루론산이 당신의 오아시스입니다." },
       { 이름: "한낮의 선인장", 설명: "극한의 갈증을 버텨온 타입. 바르는 순간 차오르는 히알먹피부, 그 첫 모금의 청량함이 누구보다 절실합니다." },
-      { 이름: "신기루 추적자", 설명: "좋은 것을 발견하면 크루 전원을 소집하는 타입. 가볍고 얇은 커버 — 이 오아시스의 좌표, 퍼뜨릴 준비 되셨죠?" }
+      { 이름: "신기루 추적자", 설명: "좋은 것을 발견하면 크루 전원을 소집하는 타입. 가볍고 얇은 커버 — 이 오아시스의 정보, 퍼뜨릴 준비 되셨죠?" }
     ],
     지수문구: "갈증 지수 {지수} / 100 — 크루원 테스트 통과"
   },
@@ -139,18 +140,19 @@ const COPY = {
     },
     책임고지: {
       제목: "발급 전, 마지막 확인",
-      본문: "정확한 정보를 입력했는지 다시 한 번 확인해 주세요! 주소·우편번호·연락처가 부정확하여 배송이 불가하거나 제품을 수령하지 못하는 경우, 재발송이 어려우며 그 책임은 신청자 본인에게 있습니다. 발송 전 다시 한번 확인해 주세요.",
+      본문: "정확한 정보를 입력했는지 다시 한 번 확인해 주세요! 주소·우편번호·연락처가 부정확하여 배송이 불가하거나 제품을 수령하지 못하는 경우, 재발송이 어려우며 그 책임은 신청자 본인에게 있습니다. 발송 전 다시 한번 확인해 주세요!",
       체크문구: "확인했습니다. 입력한 배송 정보에 이상이 없습니다.",
       확인버튼: "확인 완료 — 발급 진행",
       취소버튼: "다시 확인할게요"
     },
     동의제목: "개인정보 수집·이용에 동의합니다 (필수)",
-    동의상세: "수집 항목: 이름, X(트위터) 계정, 연락처, 주소 · 수집 목적: 체험단 선정 및 제품 배송 · 보유 기간: 체험단 운영 종료 후 즉시 파기 · 동의를 거부할 수 있으나, 거부 시 체험단 신청이 제한됩니다.",
+    동의상세: "※개인정보를 제공받는 자: (주)비바웨이브 · 수집 항목: 이름, X(트위터) 계정, 연락처, 주소 · 수집 목적: 체험단 선정 및 제품 배송 · 보유 기간: 체험단 운영 종료 후 즉시 파기 · 동의를 거부할 수 있으나, 거부 시 체험단 신청이 제한됩니다.",
     발급버튼: "탐사대원증 발급하기",
-    안내문: "발급된 카드를 트윗(공유)하는 순간 체험단 신청이 완료됩니다. 당첨자는 개별 연락으로 안내해 드립니다.",
+    안내문: "발급된 카드를 트윗(공유)하면 체험단 신청이 완료됩니다. 선정되신 분들께는 개별 연락 드립니다🌵",
     카드고정: {
       상단좌: "THIRSTY CREW — MEMBER CARD",
-      미션: "마르지 않는 오아시스 선발 탐사",
+      번호접두: "CODE",
+      미션: "마르지 않는 오아시스 사전 체험",
       목적지: "누 글로우 화이트 쿠션"
     },
     트윗버튼: "트윗하고 신청 완료",
@@ -162,7 +164,7 @@ const COPY = {
   트윗문구: [
     "🏜️ 사막을 건너 오아시스를 찾았습니다.",
     "THIRSTY CREW {크루번호} — 갈증 지수 {지수}/100 ({타입})",
-    "마르지 않는 피부 위 오아시스, 선발 탐사에 지원합니다.",
+    "마르지 않는 피부 위 오아시스, 사전 체험단 지원 완료!",
     "@hince_official #힌스 #누글로우화이트쿠션 #차세대글로우 #히알먹쿠션 #THIRSTYCREW"
   ],
 
@@ -495,7 +497,7 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
     <div class="cardzone" id="cardZone">
       <div class="crewcard">
         <div class="cc-top"><span id="ccTopL"></span><span id="ccTopR"></span></div>
-        <div class="cc-no" id="ccNo">TC-0000</div>
+        <div class="cc-no" id="ccNo">CODE-0000</div>
         <div class="cc-name" id="ccName"></div>
         <dl class="cc-rows">
           <div><dt>THIRST TYPE</dt><dd id="ccType"></dd></div>
@@ -529,6 +531,7 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
   const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   const em=s=>esc(s).replace(/\*(.+?)\*/g,'<em>$1</em>');
   const lines=arr=>arr.map(em).join('<br>');
+  const brk=s=>esc(s).replace(/\/\//g,'<br>'); /* 본문 안의 // 는 줄바꿈으로 표시 */
 
   /* ── 문안 주입 ── */
   $('hudLogo').textContent=COPY.로고;
@@ -537,19 +540,19 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
   $('e1').textContent=COPY.로그01.라벨;
   $('heroNotice').textContent=COPY.로그01.모집안내||'';
   $('heroTitle').innerHTML=lines(COPY.로그01.제목);
-  $('heroSub').textContent=COPY.로그01.본문;
+  $('heroSub').innerHTML=brk(COPY.로그01.본문);
   $('coords').innerHTML=COPY.로그01.좌표.map(r=>esc(r[0])+' · <b>'+esc(r[1])+'</b>').join('<br>');
   $('scrollCue').textContent=COPY.로그01.스크롤안내;
 
   $('e2').textContent=COPY.로그02.라벨;
   $('ritualTitle').innerHTML=lines(COPY.로그02.제목);
-  $('ritualBody').textContent=COPY.로그02.본문;
+  $('ritualBody').innerHTML=brk(COPY.로그02.본문);
   $('wellLabel').textContent=COPY.로그02.우물안내;
   $('hint').textContent=COPY.로그02.힌트;
 
   $('e3').textContent=COPY.로그03.라벨;
   $('oasisTitle').innerHTML=lines(COPY.로그03.제목);
-  $('oasisBody').textContent=COPY.로그03.본문;
+  $('oasisBody').innerHTML=brk(COPY.로그03.본문);
   $('spec').innerHTML=COPY.로그03.스펙.map(r=>'<div><dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd></div>').join('');
 
   $('e4').textContent=COPY.로그04.라벨;
@@ -573,14 +576,14 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
   $('lAddr').textContent=F.주소; $('fAddr').placeholder=F.주소예시;
   const 고지=COPY.로그05.책임고지;
   $('mTitle').textContent=고지.제목;
-  $('mBody').textContent=고지.본문;
+  $('mBody').innerHTML=brk(고지.본문);
   $('mCheckText').textContent=고지.체크문구;
   $('mConfirm').textContent=고지.확인버튼;
   $('mCancel').textContent=고지.취소버튼;
   $('consentTitle').textContent=COPY.로그05.동의제목;
   $('consentDetail').textContent=COPY.로그05.동의상세;
   $('issueBtn').textContent=COPY.로그05.발급버튼;
-  $('joinNote').textContent=COPY.로그05.안내문;
+  $('joinNote').innerHTML=brk(COPY.로그05.안내문);
   $('ccTopL').textContent=COPY.로그05.카드고정.상단좌;
   $('ccTopR').textContent=COPY.로고;
   $('ccMission').textContent=COPY.로그05.카드고정.미션;
@@ -730,7 +733,7 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
     if(tw&&!tw.startsWith('@'))tw='@'+tw;
 
     if(!myType){myType=COPY.로그04.타입들[1];myLvl=70+Math.floor(Math.random()*30);}
-    crewNo='TC-'+String(Math.floor(1000+Math.random()*9000));
+    crewNo=(COPY.로그05.카드고정.번호접두||'CODE')+'-'+String(Math.floor(1000+Math.random()*9000));
     const codename=$('fCode').value.trim()||realName;
 
     /* 구글 시트 전송 (주소 칸에 [우편번호] 주소 형태로 저장) */
