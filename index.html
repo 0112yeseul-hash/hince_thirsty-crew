@@ -31,6 +31,7 @@ const COPY = {
   /* ── LOG 01 · 첫 화면 (사막) ── */
   로그01: {
     라벨: "LOG 01 · 탐사 시작 — 어느 마른 오후",
+    모집안내: "🌵 THIRSTY CREW 모집 중 — 미션 완료 시 신청 가능!",
     제목: [
       "글로우 쿠션의 편견을 깬,",
       "#차세대글로우",
@@ -232,6 +233,12 @@ body.hydrated .grain{opacity:.18}
 body.hydrated .eyebrow{color:var(--oasis-deep)}
 
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:110px 0 60px}
+.notice{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+  border:1px solid var(--ink);padding:8px 14px;margin-bottom:22px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink)}
+.notice::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink);
+  animation:blink 1.6s ease infinite}
+@keyframes blink{50%{opacity:.25}}
 .hero h1{font-family:var(--serif);font-weight:200;font-size:clamp(34px,8.5vw,58px);line-height:1.32;letter-spacing:-.01em}
 .hero h1 em{font-style:normal;font-weight:400;position:relative;white-space:nowrap}
 .hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:var(--ink);opacity:.35}
@@ -407,6 +414,7 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
   <!-- LOG 01 -->
   <section class="hero">
     <div class="eyebrow" id="e1"></div>
+    <div class="notice" id="heroNotice"></div>
     <h1 class="cracked" id="heroTitle"></h1>
     <p class="sub" id="heroSub"></p>
     <div class="coords" id="coords"></div>
@@ -525,6 +533,7 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
   $('hudLabel').textContent=COPY.게이지라벨;
 
   $('e1').textContent=COPY.로그01.라벨;
+  $('heroNotice').textContent=COPY.로그01.모집안내||'';
   $('heroTitle').innerHTML=lines(COPY.로그01.제목);
   $('heroSub').textContent=COPY.로그01.본문;
   $('coords').innerHTML=COPY.로그01.좌표.map(r=>esc(r[0])+' · <b>'+esc(r[1])+'</b>').join('<br>');
