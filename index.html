@@ -187,8 +187,8 @@ const COPY = {
 <style>
 :root{
   --ink:#141412;
-  --bone:#EFEEEA;
-  --sand:#9E9C95;
+  --bone:#F8F9FB;
+  --sand:#6E7178;
   --line:rgba(20,20,18,.16);
   --oasis:#B9BDB4;
   --oasis-deep:#8f8d86;
@@ -212,7 +212,7 @@ body{
   overflow-x:hidden;
   transition:background 1.6s ease;
 }
-body.hydrated{background:linear-gradient(180deg,var(--bone) 0%, #EAF1EF 60%, var(--bone) 100%)}
+body.hydrated{background:linear-gradient(180deg,var(--bone) 0%, #E9F2F1 60%, var(--bone) 100%)}
 
 .grain{position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.5;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -221,7 +221,7 @@ body.hydrated .grain{opacity:.18}
 
 .hud{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;
   padding:14px 20px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink);
-  background:linear-gradient(180deg, rgba(239,238,234,.92), rgba(239,238,234,0));}
+  background:linear-gradient(180deg, rgba(248,249,251,.92), rgba(248,249,251,0));}
 .hud .logo{font-weight:500;letter-spacing:.28em}
 .hud .meter{display:flex;align-items:center;gap:8px}
 .hud .bar{width:72px;height:3px;background:var(--line);position:relative;overflow:hidden}
@@ -319,7 +319,7 @@ section.log{padding:90px 0;border-top:1px solid var(--line)}
 .field input{width:100%;background:#fff;border:1px solid var(--line);padding:15px 16px;font-family:var(--sans);
   font-size:15px;color:var(--ink);transition:border-color .2s}
 .field input:focus{outline:none;border-color:var(--oasis-deep)}
-.field input::placeholder{color:#b9b8b2}
+.field input::placeholder{color:#AEB1B8}
 .field input.err{border-color:#C0564B}
 .consent{background:#fff;border:1px solid var(--line);padding:16px 18px}
 .consent.err{border-color:#C0564B}
@@ -365,8 +365,8 @@ section.log{padding:90px 0;border-top:1px solid var(--line)}
 .crewcard .cc-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:#8f8e88;margin-bottom:40px}
 .crewcard .cc-no{font-family:var(--mono);font-size:clamp(28px,7vw,38px);letter-spacing:.06em;color:#fff;margin-bottom:6px}
 .crewcard .cc-name{font-family:var(--serif);font-weight:300;font-size:17px;color:#d8d7d1;margin-bottom:30px}
-.crewcard .cc-rows{border-top:1px solid rgba(239,238,234,.18)}
-.crewcard .cc-rows div{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(239,238,234,.14);font-size:12px}
+.crewcard .cc-rows{border-top:1px solid rgba(248,249,251,.18)}
+.crewcard .cc-rows div{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(248,249,251,.14);font-size:12px}
 .crewcard .cc-rows dt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:#8f8e88;padding-top:2px}
 .crewcard .cc-rows dd{color:#eceae4;text-align:right}
 .crewcard .stamp{position:absolute;right:22px;bottom:20px;width:78px;height:78px;border:1px solid rgba(79,167,157,.9);
@@ -741,7 +741,7 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
     btn.disabled=true; btn.textContent='전송 중…';
     const payload={
       crewNo:crewNo, codename:codename, realName:realName,
-      twitter:tw, phone:phone, zip:zip, address:addr,
+      twitter:'https://x.com/'+tw.replace(/^@/,''), phone:phone, zip:zip, address:addr,
       thirstType:myType.이름, thirstLvl:myLvl,
       consent:'동의', page:'THIRSTY CREW 티징'
     };
