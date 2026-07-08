@@ -799,7 +799,14 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
     if(tw&&!tw.startsWith('@'))tw='@'+tw;
 
     if(!myType){myType=COPY.로그04.타입들[1];myLvl=70+Math.floor(Math.random()*30);}
-    crewNo=(COPY.로그05.카드고정.번호접두||'CODE')+'-'+String(Math.floor(1000+Math.random()*9000));
+    /* 민감한 숫자 조합 제외: 518/625/416/419로 시작하거나 특정 번호와 일치하면 다시 뽑음 */
+    const 금지시작=['518','625','416','419'];
+    const 금지번호=['1818','1212','1026','4444','1919','3115'];
+    let 번호;
+    do{
+      번호=String(Math.floor(1000+Math.random()*9000));
+    }while(금지시작.some(p=>번호.startsWith(p))||금지번호.includes(번호));
+    crewNo=(COPY.로그05.카드고정.번호접두||'CODE')+'-'+번호;
     const codename=$('fCode').value.trim()||realName;
 
     /* 구글 시트 전송 (주소 칸에 [우편번호] 주소 형태로 저장) */
