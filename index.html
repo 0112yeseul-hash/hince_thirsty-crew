@@ -53,7 +53,7 @@ const COPY = {
     제목: [
       "메마른 물방울 안에",
       "수분을 채워야 길이 열려요!"
-    ], 
+    ],
     본문: "아래 버튼을 길게 눌러 보세요. 손을 떼면 다시 마릅니다.",
     우물안내: "PRESS & HOLD",
     힌트: "HOLD TO HYDRATE",
@@ -118,10 +118,10 @@ const COPY = {
   /* ── LOG 05 · 신청 폼 ── */
   로그05: {
     라벨: "LOG 05 · Last Stage — THIRSTY CREW 합류",
-     제목: [
+    제목: [
       "아래 정보를 입력하여",
       "CREW ID CARD를 발급 받으세요!",
-      "그리고 트윗하면 신청 끝⭐"
+      "그리고 트윗하면 신청 끝!⭐"
     ],
     폼: {
       코드네임: "CODENAME · 카드에 새길 이름 (선택)",
@@ -138,6 +138,21 @@ const COPY = {
       우편번호오류: "우편번호 5자리를 정확히 입력해 주세요.",
       주소: "주소 (제품 배송지)",
       주소예시: "도로명 주소 + 상세 주소"
+    },
+    /* ── 희망 호수 선택 (컬러칩) ──
+       [ "호수명", "색상코드" ] 형태. 호수를 추가/삭제하거나 이름을 바꿀 수 있어요. */
+    색상선택: {
+      라벨: "희망 호수 *(최대 2개 선택 가능)*",
+      안내: "어떤 컬러를 고를지 고민된다면? — 최대 2개까지 선택하실 수 있어요.",
+      오류: "희망 호수를 1개 이상 선택해 주세요.",
+      최대오류: "호수는 최대 2개까지 선택할 수 있어요.",
+      색상들: [
+        ["15 페어", "#F5E1D3"],
+        ["17 라이트", "#F4D9C8"],
+        ["21 퓨어 아이보리", "#EFCFC0"],
+        ["22 내추럴", "#EDCBB8"],
+        ["23 베이지", "#ECC2AC"]
+      ]
     },
     책임고지: {
       제목: "발급 전, 마지막 확인",
@@ -322,6 +337,20 @@ section.log{padding:90px 0;border-top:1px solid var(--line)}
 .field input:focus{outline:none;border-color:var(--oasis-deep)}
 .field input::placeholder{color:#AEB1B8}
 .field input.err{border-color:#C0564B}
+.field label em{font-style:normal;color:var(--oasis-deep);font-weight:700}
+.shade-note{font-size:13px;font-weight:600;color:var(--oasis-deep);line-height:1.6;
+  margin:-2px 0 10px;word-break:keep-all}
+.shades{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:10px}
+.shade{display:flex;flex-direction:column;align-items:center;gap:8px;background:#fff;
+  border:1px solid var(--line);padding:14px 8px 12px;cursor:pointer;position:relative;
+  font-family:var(--sans);transition:border-color .2s, background .2s, transform .15s}
+.shade:active{transform:scale(.97)}
+.shade .chip{width:36px;height:36px;border-radius:50%;border:1px solid rgba(20,20,18,.1);
+  transition:box-shadow .2s}
+.shade .nm{font-size:11px;line-height:1.4;text-align:center;color:var(--ink);word-break:keep-all}
+.shade.sel{border-color:var(--oasis-deep);background:var(--glow)}
+.shade.sel .chip{box-shadow:0 0 0 2px #fff, 0 0 0 4px var(--oasis-deep)}
+.shade.sel::after{content:"✓";position:absolute;top:6px;right:8px;font-size:11px;font-weight:700;color:var(--oasis-deep)}
 .consent{background:#fff;border:1px solid var(--line);padding:16px 18px}
 .consent.err{border-color:#C0564B}
 .consent .row{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
@@ -479,6 +508,11 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
       <div class="field"><label for="fAddr" id="lAddr"></label>
         <input id="fAddr" type="text" maxlength="120" autocomplete="street-address"></div>
 
+      <div class="field"><label id="lShade"></label>
+        <div class="shade-note" id="shadeNote"></div>
+        <div class="shades" id="shadeZone"></div>
+        <div class="ferr" id="shadeErr"></div></div>
+
       <div class="consent" id="consentBox">
         <label class="row">
           <input type="checkbox" id="fConsent">
@@ -575,6 +609,32 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
   $('lPhone').textContent=F.연락처; $('fPhone').placeholder=F.연락처예시;
   $('lZip').textContent=F.우편번호; $('fZip').placeholder=F.우편번호예시;
   $('lAddr').textContent=F.주소; $('fAddr').placeholder=F.주소예시;
+  /* 희망 호수 칩 렌더링 + 선택 (최대 2개) */
+  const SH=COPY.로그05.색상선택;
+  $('lShade').innerHTML=em(SH.라벨);
+  $('shadeNote').textContent=SH.안내||'';
+  $('shadeZone').innerHTML=SH.색상들.map((s,i)=>
+    '<button type="button" class="shade" data-i="'+i+'">'
+    +'<span class="chip" style="background:'+esc(s[1])+'"></span>'
+    +'<span class="nm">'+esc(s[0])+'</span></button>').join('');
+  const pickedShades=[];
+  document.querySelectorAll('.shade').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const name=SH.색상들[+btn.dataset.i][0];
+      const at=pickedShades.indexOf(name);
+      if(at>-1){ pickedShades.splice(at,1); btn.classList.remove('sel'); }
+      else{
+        if(pickedShades.length>=2){
+          $('shadeErr').textContent=SH.최대오류; $('shadeErr').classList.add('on');
+          setTimeout(()=>{$('shadeErr').classList.remove('on');},2000);
+          return;
+        }
+        pickedShades.push(name); btn.classList.add('sel');
+      }
+      if(pickedShades.length){ $('shadeErr').classList.remove('on'); }
+    });
+  });
+
   const 고지=COPY.로그05.책임고지;
   $('mTitle').textContent=고지.제목;
   $('mBody').innerHTML=brk(고지.본문);
@@ -704,6 +764,11 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
     $('zipErr').classList.toggle('on',!!zip&&!zipOk);
     if(zip&&!zipOk){$('fZip').classList.add('err');ok=false;}
 
+    /* 희망 호수: 1개 이상 필수 */
+    if(pickedShades.length===0){
+      $('shadeErr').textContent=SH.오류; $('shadeErr').classList.add('on'); ok=false;
+    }else{ $('shadeErr').classList.remove('on'); }
+
     $('consentBox').classList.toggle('err',!consent);
     if(!consent)ok=false;
     if(!ok){$('formErr').textContent='필수 항목을 모두 정확히 입력하고 동의에 체크해 주세요.';return;}
@@ -743,6 +808,7 @@ footer p{margin-top:12px;font-size:12px;color:var(--sand)}
     const payload={
       crewNo:crewNo, codename:codename, realName:realName,
       twitter:'https://x.com/'+tw.replace(/^@/,''), phone:phone, zip:zip, address:addr,
+      shade1:pickedShades[0]||'', shade2:pickedShades[1]||'',
       thirstType:myType.이름, thirstLvl:myLvl,
       consent:'동의', page:'THIRSTY CREW 티징'
     };
